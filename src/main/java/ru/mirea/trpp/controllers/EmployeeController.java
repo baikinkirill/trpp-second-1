@@ -1,28 +1,37 @@
-package ru.mirea.trpp_second_1.controllers;
+package ru.mirea.trpp.controllers;
 
-
+import com.opencsv.bean.CsvToBeanBuilder;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import ru.mirea.trpp.entity.Employee;
 
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
 
-/** Контроллер для работы с сотрудниками. */
+/**
+ * Контроллер для работы с сотрудниками.
+ */
 @Controller("/employee")
 public class EmployeeController {
 
-    /** Список сотрудников. */
+    /**
+     * Список сотрудников.
+     */
     private final List<Employee> employeeList;
 
-    /** Конструктор. */
+    /**
+     * Конструктор.
+     */
     public EmployeeController() {
-        employeeList = new CsvToBeanBuilder<Employee>(new InputStreamReader(this.getClass().getResourceAsStream("/MOCK_DATA.csv"))).withType(Employee.class).build().parse();
+        employeeList = new CsvToBeanBuilder<Employee>(new InputStreamReader(this.getClass()
+                .getResourceAsStream("/MOCK_DATA.csv"))).withType(Employee.class).build().parse();
     }
 
     /**
      * Получить список сотрудников.
+     *
      * @return список сотрудников
      */
     @Get()
@@ -32,6 +41,7 @@ public class EmployeeController {
 
     /**
      * Найти сотрудника по идентификатору.
+     *
      * @param id идентификатор сотрудника
      * @return Пользователь, если есть, иначе 404 ошибка
      */

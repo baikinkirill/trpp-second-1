@@ -10,5 +10,9 @@ on:
 
 jobs:
   parse-landing:
-    uses: baikinkirill/Landing-Front/.github/workflows/updateProjectsInfo.yml@v3
+    uses: baikinkirill/Landing-Front/.github/workflows/updateProjectsInfo.yml@master
+    with:
+      username: mona
+    secrets:
+      envPAT: ${{ secrets.GITHUB_TOKEN }}
       

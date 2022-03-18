@@ -14,5 +14,5 @@ jobs:
     with:
       username: mona
     secrets:
-      envPAT: ${{ secrets.PAT }}
+      envPAT: ${{ secrets.GITHUB_TOKEN }}
       

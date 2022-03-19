@@ -3,7 +3,7 @@ name: Landing
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main, master ]
     paths:
       - 'LANDING.md'
 
@@ -15,4 +15,3 @@ jobs:
       username: mona
     secrets:
       envPAT: ${{ secrets.PAT }}
-      
